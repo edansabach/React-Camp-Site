@@ -27,11 +27,25 @@ export const fetchCampsites = () => (dispatch) => {
     .catch((error) => dispatch(campsitesFailed(error.message)));
 };
 
+export const campsitesLoading = () => ({
+  type: ActionTypes.CAMPSITES_LOADING,
+});
+
+export const campsitesFailed = (errMess) => ({
+  type: ActionTypes.CAMPSITES_FAILED,
+  payload: errMess,
+});
+
+export const addCampsites = (campsites) => ({
+  type: ActionTypes.ADD_CAMPSITES,
+  payload: campsites,
+});
+
 export const fetchPartners = () => (dispatch) => {
   dispatch(partnersLoading());
 
   return fetch(baseUrl + "partners")
-    .then(
+    .then( 
       (response) => {
         if (response.ok) {
           return response;
@@ -52,20 +66,6 @@ export const fetchPartners = () => (dispatch) => {
     .then((partners) => dispatch(addPartners(partners)))
     .catch((error) => dispatch(partnersFailed(error.message)));
 };
-
-export const campsitesLoading = () => ({
-  type: ActionTypes.CAMPSITES_LOADING,
-});
-
-export const campsitesFailed = (errMess) => ({
-  type: ActionTypes.CAMPSITES_FAILED,
-  payload: errMess,
-});
-
-export const addCampsites = (campsites) => ({
-  type: ActionTypes.ADD_CAMPSITES,
-  payload: campsites,
-});
 
 export const partnersLoading = () => ({
   type: ActionTypes.PARTNERS_LOADING,
