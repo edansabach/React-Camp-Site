@@ -5,7 +5,6 @@ import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform } from "react-animation-components";
 
 function RenderCard({ item, isLoading, errMess }) {
-  console.log(item, "ITEM RIGHT HERE");
   if (isLoading) {
     return <Loading />;
   }

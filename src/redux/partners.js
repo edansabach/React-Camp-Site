@@ -10,7 +10,7 @@ export const Partners = (
         ...state,
         isLoading: false,
         errMess: null,
-        promotions: action.payload,
+        partners: action.payload,
       };
 
     case ActionTypes.PARTNERS_LOADING:
